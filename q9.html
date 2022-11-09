@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BMI Calc</title>
+    </head>
+    <body>
+        <form>
+            Heigth <input type="text" id="h">cm<br/>
+            Wight <input type="text" id="w">kg<br/>
+            <input type="button" value="Submit" onclick="bmiCalc()">
+        </form>
+        <p id="ans"></p>
+
+        <script>
+            function bmiCalc(){
+                var h = document.getElementById('h').value;
+                var w = document.getElementById('w').value;
+                
+                h = h/100;
+                
+                var bmi = Math.round(w/(h**2) * 100) / 100;
+
+                if(bmi > 30){
+                    document.getElementById('ans').innerHTML = "BMI: "+bmi+" Obese";
+                }
+                else if(bmi <= 30.0 && bmi > 25.0){
+                    document.getElementById('ans').innerHTML = "BMI: "+bmi+" Overwieght";
+                }
+                else if(bmi <= 25.0 && bmi > 18.5){
+                    document.getElementById('ans').innerHTML = "BMI: "+bmi+" Normal";
+                }
+                else{
+                    document.getElementById('ans').innerHTML = "BMI: "+bmi+" Underwieght";
+                }
+            }
+        </script>
+    </body>
+</html>

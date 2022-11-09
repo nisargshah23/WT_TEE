@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            const n = 10;
+	
+            // Create a new array of size 'n'
+            var series = new Array(n);
+
+            // Fills all places in array with 0
+            series.fill(0);
+            
+            // Seed value for 1st element
+            series[0] = 0;
+            
+            // Seed value for 2nd element
+            series[1] = 1;
+            
+            for(let i = 2; i < n; i++) {
+                series[i] = series[i-1] + series[i-2];
+                console.log(series[i]);
+            }
+
+            // Print the series
+            console.log(series);
+        </script>
+    </head>
+</html>

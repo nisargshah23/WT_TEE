@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="displaydate()">Display the date</button>
+    <br>
+    <br>
+    <button onclick="factorial()">Get the factorial</button>
+    <br>
+    <br>
+    <button onclick="table()">Get Table</button>
+    <br>
+    <br>
+    <button onclick="add()">Get Addition</button>
+    <br>
+    <br>
+    <p id="date"></p>
+</body>
+<script>
+    function displaydate() {
+        let dt = new Date();
+        document.getElementById("date").innerHTML = dt;
+        setInterval(displaydate, 1000);
+    }
+    function factorial() {
+        let f = prompt("Enter the number", "5");
+        let g = +f;
+        let fact = 1;
+        for (let i = 1; i <= g; i++) {
+            fact *= i;
+            if (i == g) {
+                alert(`The factorial is ${fact}`);
+            }
+        }
+    }
+    function table() {
+        let t_temp = prompt("Enter the number", "5");
+        let t = +t_temp;
+        let output = [];
+        for (let i = 1; i <= 10; i++) {
+            output[i] = t * i;
+            alert(`The ${t_temp} * ${i} " = " ${output[i]}`);
+        }
+    }
+    function add() {
+        let n1_temp = prompt("Enter the first number", "10");
+        let n1 = +n1_temp;
+        let n2_temp = prompt("Enter the second number", "20");
+        let n2 = +n2_temp;
+        let checker = confirm(`You have entered the value ${n2}`)
+        if (checker) {
+            alert(`The sum is ${n1 + n2}`);
+        }
+        else {
+            alert("n2 value not entered");
+        }
+    }
+</script>
+
+</html>

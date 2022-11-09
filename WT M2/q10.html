@@ -1,0 +1,97 @@
+<html>
+
+<head>
+    <script type="text/javascript">
+        function findcost() {
+            var major = document.getElementById("major");
+            var Starters = document.getElementById("starters");
+            var soft = document.getElementById("soft");
+            var s = "Item \t \t \t Price \n--------------------------------\n";
+            var totalcost = 0;
+
+            for (var i = 0; i < major.options.length; i++) {
+                var option = major.options[i];
+                if (option.selected == true) {
+                    var price = parseInt(option.value);
+                    totalcost = totalcost + price;
+                    s = s + option.text + "\t \t" + price + "\n";
+                }
+            }
+            for (var i = 0; i < starters.options.length; i++) {
+                var option = starters.options[i];
+                if (option.selected == true) {
+                    var price = parseInt(option.value);
+                    totalcost = totalcost + price;
+                    s = s + option.text + "\t \t" + price + "\n";
+                }
+            }
+            var softdrinkindex = soft.selectedIndex;
+            if (softdrinkindex != null) {
+                var selectedsoftdrink = soft.options[soft.selectedIndex].text;
+                var price = parseInt(soft.options[soft.selectedIndex].value);
+                totalcost = totalcost + price;
+                s = s + selectedsoftdrink + "\t \t" + price + "\n";
+            }
+            s = s + "\n\n Total Cost \t \t" + totalcost;
+            document.getElementById("ordereditems").value = s;
+        }
+    </script>
+</head>
+
+<body>
+    <form name="menuForm">
+        <table border="1">
+            <tr>
+                <td colspan="2" align="center">
+                    <h2>Restaurant Menu Details</h2>
+                </td>
+            </tr>
+            <tr>
+                <td> Major Dishes:</td>
+                <td>
+                    <select id="major" size="3" multiple="multiple">
+                        <option value="100"> Vegetable Pulav</option>
+                        <option value="150"> Hyderabadi Biriyani</option>
+                        <option value="50"> Roti with Curry </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td> Starters </td>
+                <td> <select id="starters" size="3" multiple="multiple">
+                        <option value="80"> Gobi Manchurian </option>
+                        <option value="40"> Veg Clear Soup </option>
+                        <option value="30"> Masala Papad </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Soft Drinks</td>
+                <td>
+                    <select id="soft" size="3" multiple="multiple">
+                        <option value="20"> Pepsi</option>
+                        <option value="25"> Coke </option>
+                        <option value="30"> Lime Soda </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <textarea id="ordereditems" rows="10" cols="40">
+
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="Find total Cost" onclick="findcost()" />
+                </td>
+                <td>
+                    <input type="reset" value="Clear" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

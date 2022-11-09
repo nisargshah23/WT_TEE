@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+<style>
+.container{
+ border:2px solid black;
+}
+</style>
+</head>
+<body>
+<div class="container">
+ <img id="image" 
+onmouseover="mouseoverimage()"src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" onmouseout="mouseoutimage()">
+</div>
+</body>
+<script>
+function mouseoverimage(){
+ document.getElementById("image").src = "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg";
+}
+function mouseoutimage(){
+ document.getElementById("image").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDuE2ejpy-CjPVNdAhuIVch-8DRr20pvVwxs2pBWtl&s";
+}
+</script>
+</html>

@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <title>Registeration Form</title>
+    <script>
+        function validate() {
+            var name = document.getElementById("fname").value;
+            var phone = document.getElementById("contact").value;
+            var password = document.getElementById("pwd1").value;
+            var decimal = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+            if (password.length < 8) {
+                alert("Password should be atleast 8 character long");
+                password.focus();
+                return false;
+            }
+            if (isNaN(phone) || phone.length != 10) {
+                alert("Please enter valid phone number");
+                phone.focus();
+                return false;
+            }
+            if (!password.match(decimal)) {
+                alert("Wrong! It ahould contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character");
+                password.focus();
+                return false;
+            }
+            if (name.length < 4) {
+                alert("Please enter your name properly");
+                name.focus();
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <div id="first">
+            <form id="registration" name="registration" onsubmit="return validate()" method="post">
+                <center>
+                    <h2 style="color:darkred; font-family:Times New Roman; font-size:30px"><u> Registration Form</u>
+                    </h2>
+                </center>
+                <label class="fname"><b>Full Name:</b></label>
+                <input id="fname" placeholder="Full Name" name="fname" type="text" required><br><br>
+                <label><b>Password:</b></label>
+                <input id="pwd1" placeholder="Password" name="pwd1" type="password" required><br><br>
+                <label><b>Email:</b></label>
+                <input id="email" name="email" placeholder="Email" type="email"><br><br>
+                <label class="contact"><b>Contact Number:</b></label>
+                <input id="contact" type="phone" name="contact" placeholder="Contact Number" required><br><br>
+                <label><b>Gender:</b></label>
+                <t />
+                <input type="radio" id="gender" name="gender" value="male" required="required" /> Male
+                <t />
+                <input type="radio" id="gender" name="gender" value="female" /> Female <br><br>
+                <label><b>Address:</b></label>
+                <input id="address" placeholder="Address" type="textarea" required><br><br>
+                <input type="submit" id="submit" name="submit" value="Register">
+            </form>
+        </div>
+    </center>
+</body>
+<script type="text/javascript" src="validation.js"> </script>
+
+</html>

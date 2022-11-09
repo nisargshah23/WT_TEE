@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Holiday List</title>
+</head>
+<body>
+    <input type="button" onclick="getJSON()" value="Holiday List">
+    <p id="a"></p>
+  <script>
+    function getJSON(){
+        const endpoint = 'https://www.gov.uk/bank-holidays.json'
+
+        fetch(endpoint)
+        .then(response => response.json())
+        .then((data) => {
+            document.getElementById('a').innerHTML += "<ul>";
+            for(let i = 0; i < data['england-and-wales']['events'].length; i++){
+                document.getElementById('a').innerHTML += "<li>"+JSON.stringify(data['england-and-wales']['events'][i]['title'])+"</li><br/>";
+            }
+            document.getElementById('a').innerHTML += "</ul>";
+        }).catch((error) =>{
+            console.error('Something Went Wrong');
+            console.error(error);
+        } )
+    }
+  </script>
+</body>
+</html>

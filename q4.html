@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Factorial</title>
+    </head>
+    <body>
+        <form>
+            Enter Number: <input type="text" id="inp">
+            <input type="button" value="Calculate" onclick="factorial()">
+        </form>
+        Factorial -> <span id="ans"></span>
+
+        <script>
+            function factorial(){
+                var inp = document.getElementById('inp').value;
+                var fact = 1;
+                
+                for(let i = 1; i<=inp; i++){
+                    fact = fact*i;
+                }
+
+                document.getElementById('ans').innerHTML = fact;
+            }
+        </script>
+    </body>
+</html>

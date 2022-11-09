@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Anagrams</title>
+        <script>
+           
+
+            function isAnagram(){
+                var inp1 = document.getElementById('inp1').value;
+                var inp2 = document.getElementById('inp2').value;
+
+                var count_ = 0;
+                if(inp1.length != inp2.length){
+                    document.getElementById('ans').innerHTML = "Not Anagram!";
+                }
+                else{
+                    var inp1_arr = inp1.split('').sort();
+                    var inp2_arr = inp2.split('').sort();
+                    
+                    for(let i=0; i<inp1.length ; i++){
+                        if (inp1_arr[i] == inp2_arr[i])
+                        {
+                            count_++;
+                        }
+                    }
+
+                    if(count_ == inp1.length){
+                        document.getElementById('ans').innerHTML = "Anagram!";
+                    }
+                    else{
+                        document.getElementById('ans').innerHTML = "Not Anagram!";
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            Input 1 <input type="text" id="inp1"><br/>
+            Input 2 <input type="text" id="inp2"><br/>
+            <input type="button" value="Submit" onclick="isAnagram()">
+        </form>
+        <p id="ans"></p>
+    </body>
+</html>

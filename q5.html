@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>square of elements</title>
+    </head>
+    <body>
+        Before Square -><p id="bfrsqr"></p><br/>
+        Sum of Squares -><p id="aftsum"></p>
+        <script>
+            var arr = [1,2,2];
+            
+            calcsum(arr);
+            
+            function calcsum(arr){
+                document.getElementById("bfrsqr").innerHTML = arr;
+
+                var sum_sq = 0;
+                for(let i = 0; i<arr.length; i++){
+                    sum_sq = sum_sq + arr[i]**2;
+                }
+                document.getElementById("aftsum").innerHTML = sum_sq;
+            }
+            
+        </script>
+
+    </body>
+</html>
